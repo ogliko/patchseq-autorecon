@@ -10,7 +10,8 @@ This repository contains codes and processed data files for analyses presented i
 ### Data
 
  - [Neurons in Mouse Primary Visual Cortex](https://portal.brain-map.org/explore/classes/multimodal-characterization)
-
+ - `data` contains dataset of automated morphological reconstructions of inhibitory neurons
+ 
  
 ### Code
 

@@ -9,4 +9,6 @@ psutil>=5.4.7
 jupyter==1.0.0
 matplotlib==2.2.3
 pillow==6.0.0
+argschema==3.0.1
+natsort
 

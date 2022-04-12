@@ -29,7 +29,7 @@ Original github repo [here](https://github.com/jgornet/NeuroTorch).
 
 **Neuron reconstruction pipeline**
 
-Automated pipeline combines segmentation of raw image stacks into soma, axon and dendrite structures with post-processing to produce a swc file.  
+Automated pipeline combines pre-processing raw images, segmentation of raw image stack into soma/axon/dendrite channels, post-processing, and conversion of images to swc file. This code, and [a small example](https://github.com/ogliko/patchseq-autorecon/blob/master/pipeline/example_pipeline.sh) can be found under the pipeline section of this repository. The example's maximum intensity projection (mip) is seen [here](https://github.com/ogliko/patchseq-autorecon/blob/master/pipeline/Example_Specimen_2112/example_specimen.PNG) 
  
 #### Data analysis
 

@@ -21,36 +21,6 @@ wm_xyz = open_annotationFile(surfaceFilenames{2}, units_swc, scalefactor);
 [nodes,edges,radii,nodeTypes,abort] = readArborTrace(arborFileName, swcUnitType, nHeader, units_swc, scalefactor);
 disp('arbor trace is read')
 
-figure(1);
-set(gcf,'Position',[10 10 1100 300])
-subplot(1,3,1) 
-plot(nodes(:,1), nodes(:,3), 'b.')
-hold on
-plot(pia_xyz(:,1), pia_xyz(:,3), 'k.')
-plot(wm_xyz(:,1), wm_xyz(:,3), 'r.')
-hold off
-subplot(1,3,2) 
-plot(nodes(:,2), nodes(:,3), 'b.')
-hold on
-plot(pia_xyz(:,2), pia_xyz(:,3), 'k.')
-plot(wm_xyz(:,2), wm_xyz(:,3), 'r.')
-hold off
-subplot(1,3,3) 
-plot(nodes(:,1), nodes(:,2), 'b.')
-hold on
-plot(pia_xyz(:,1), pia_xyz(:,2), 'k.')
-plot(wm_xyz(:,1), wm_xyz(:,2), 'r.')
-hold off
-
-figure(2);
-set(gcf,'Position',[10 10 1100 300])
-subplot(1,3,1) 
-plot(nodes(:,1), nodes(:,3), 'b.')
-subplot(1,3,2) 
-plot(nodes(:,2), nodes(:,3), 'b.')
-subplot(1,3,3) 
-plot(nodes(:,1), nodes(:,2), 'b.')
-
 warpedArbor = neuronDeformer(nodes, edges, radii, surfaceFilenames, avg_layer_thickness(border_idx), layer_name, voxelRes, conformalJump, units_swc, scalefactor );
 assigned_layers = warpedArbor.layers;
 warpedArbor.edges=edges;
@@ -76,18 +46,6 @@ ycoeff = mean(warpedArbor.nodes(idx_ratio,3)./nodes(idx_ratio,3));
 warpedArbor.nodes(idx_bwm,3) = nodes(idx_bwm,3)*ycoeff;
 csvwrite(strcat(outdir, fname, '_', num2str(length(surfaceFilenames)), '_warpedArbor_nodes.csv'), [double(nodeTypes), warpedArbor.nodes]);
 
-figure(3);
-set(gcf,'Position',[10 10 1100 300])
-subplot(1,3,1) 
-plot(warpedArbor.nodes(:,1), warpedArbor.nodes(:,3), 'g.')
-subplot(1,3,2) 
-plot(warpedArbor.nodes(:,2), warpedArbor.nodes(:,3), 'g.')
-subplot(1,3,3) 
-plot(warpedArbor.nodes(:,1), warpedArbor.nodes(:,2), 'g.')
-hold on
-plot(nodes(:,1), nodes(:,2), 'b.')
-hold off
-
 nodes = warpedArbor.nodes;
 edges = warpedArbor.edges;
 
@@ -95,33 +53,11 @@ edges = warpedArbor.edges;
 nodes(:,1) = nodes(:,1) - nodes(1,1); % swc_x
 nodes(:,2) = nodes(:,2) - nodes(1,2); % swc_z
         
-figure(4);
-subplot(1,3,1) 
-plot(nodes(:,1), nodes(:,3), 'b.') % swc xy
-ylim([0 1.2])
-subplot(1,3,2) 
-plot(nodes(:,2), nodes(:,3), 'b.') % swc zy
-ylim([0 1.2])
-subplot(1,3,3) 
-plot(nodes(:,1), nodes(:,2), 'b.') % swc xz
-daspect([1 1 1])
-
 % scale dimensions
 scale_xy = 1000; % swc xz
 nodes(:,1) = nodes(:,1)/scale_xy; % swc_x
 nodes(:,2) = nodes(:,2)/scale_xy; % swc_z
 nodes(:,3) = nodes(:,3) - 0.5; % swc_y range change from [0,1] to [-0.5,0.5]
-
-figure(5);
-subplot(1,3,1) 
-plot(nodes(:,1), nodes(:,3), 'b.') % swc xy
-ylim([-0.5 0.7])
-subplot(1,3,2) 
-plot(nodes(:,2), nodes(:,3), 'b.') % swc zy
-ylim([-0.5 0.7])
-subplot(1,3,3) 
-plot(nodes(:,1), nodes(:,2), 'b.') % swc xz
-daspect([1 1 1])
 
 % save nodes before calculating y vs r
 csvwrite(strcat(outdir, fname, '_', num2str(length(surfaceFilenames)), '_transformedArbor_nodes.csv'), [double(nodeTypes) nodes]);
@@ -139,17 +75,7 @@ csvwrite(strcat(outdir, 'hist1d', extstr, '\', 'hist1d_', sp, '.csv'), histbins'
 [theta,r] = cart2pol(nodes(:,1),nodes(:,2));
 disp(["r", min(r), max(r)]);
 
-% plot nodes in cylindrical coordinates
-figure(6);
-set(gcf,'Position',[10 10 700 300])
-subplot(1,2,1) 
-polarplot(theta,r,'b.')
-subplot(1,2,2)
-plot(r,nodes(:,3),'b.')
-xlabel('r')
-ylabel('y') % swc_y
-
-xe = 4; % # of bins in x (4 or 40)
+xe = 4; % # of bins in x
 ye = 120; % # of bins in y
 
 Xedges = [0:1/xe:1]*0.5; 
@@ -166,14 +92,6 @@ for i=1:size(hist2d,2)
 end
 hist2d = hist2d./rs; %normalize by ring surface
 disp(["hist2d", max(max(hist2d))]);
-
-figure(8);
-set(gcf,'Position',[10 10 200 480])
-imagesc(hist2d);
-%axis image;
-xlabel('rbins')
-ylabel('ybins')
-title('hist2d','FontSize',12)
 
 % save hist2d as csv and tif files
 filename = strcat('hist2d_', string(ye), 'x', string(xe), '_', sp); 
@@ -232,9 +150,6 @@ csvwrite(strcat(outdir, 'hist1d', extstr, '_bwm\', 'hist1d_', sp, '.csv'), histb
 Xedges = [0:1/xe:1]*0.5; 
 Yedges = [0:1.2/ye:1.2]-0.5;
 
-figure(11);
-h = histogram2(r, nodes(:,3), Xedges, Yedges, 'DisplayStyle', 'tile', 'ShowEmptyBins', 'on');
-
 hist2d = h.Values; %dimensions [r y]
 hist2d = hist2d.'; %dimensions[y r]
 rs = zeros(1,size(hist2d,2));
@@ -244,14 +159,6 @@ end
 hist2d = hist2d./rs; %normalize by ring surface
 disp(["hist2d", max(max(hist2d))]);
 % ln_hist2d = log(1 + hist2d); 
-
-figure(12);
-set(gcf,'Position',[10 10 200 480])
-imagesc(hist2d);
-%axis image;
-xlabel('rbins')
-ylabel('ybins')
-title('hist2d','FontSize',12)
 
 % save hist2d as csv and tif files
 filename = strcat('hist2d_', string(ye), 'x', string(xe), '_', sp); 
@@ -281,17 +188,10 @@ for i=1:numel(select_types)
     histbins = hist(nodes(select,3),[1.2/120:1.2/120:1.2]-0.5-1.2/240);
     csvwrite(strcat(outdir, 'hist1d', extstr, '_bwm\', 'hist1d', ext_nodes, sp, '.csv'), histbins');
     
-    figure(13);
-    h = histogram2(r(select), nodes(select,3), Xedges, Yedges, 'DisplayStyle', 'tile', 'ShowEmptyBins', 'on');
-
     hist2d = h.Values; %dimensions [r y]
     hist2d = hist2d.'; %dimensions[y r]
     hist2d = hist2d./rs; %normalize by ring surface
-
-    figure(14);
-    set(gcf,'Position',[10 10 200 480])
-    imagesc(hist2d);
-    
+  
     % save hist2d as csv and tif files
     filename = strcat('hist2d_', string(ye), 'x', string(xe), ext_nodes, sp); 
     csvwrite(strcat(outdir, 'hist2d_', string(ye), 'x', string(xe), extstr, '_bwm\', filename, '.csv'), hist2d);

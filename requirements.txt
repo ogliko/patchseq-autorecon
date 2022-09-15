@@ -1,7 +1,7 @@
 numpy>=1.14.5
 tensorboardX>=1.2
-pytorch==0.4.0
-tifffile==0.14.0
+pytorch==1.4.0
+tifffile
 h5py>=2.7.1
 scipy>=1.1.0
 pybind11>=2.2.3
@@ -11,4 +11,4 @@ matplotlib==2.2.3
 pillow==6.0.0
 argschema==3.0.1
 natsort
-
+pandas

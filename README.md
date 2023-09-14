@@ -22,10 +22,14 @@ This repository contains codes and processed data files for analyses presented i
 Matlab functions and scripts to generate volumetric labels from manual traces using a topology preserving fast marching algorithm.
 Original github repo [here](https://github.com/rhngla/topo-preserve-fastmarching).
 
-**Neural network training**
+**Segmentation**
 
-Automated multi-class segmentation of neuronal arbors.
+Code for training a neuron network model to perform a multi-class segmentation of neuronal arbors is in the pytorch_segment section of this repository.
 Original github repo [here](https://github.com/jgornet/NeuroTorch).
+
+**Postprocessing**
+
+Code for postprocessing including relabeling to improve axon/dendrite node assignment of the initial reconstruction is in the postprocessing section of this repository.
 
 **Neuron reconstruction pipeline**
 
@@ -36,8 +40,3 @@ Automated pipeline combines pre-processing raw images, segmentation of raw image
  - arbor density representation
  - supervised classification
  - sparse feature selection
- 
-#### SWC Post-Processing
-
- Code for creating swc post-processing workflows can be found here:
- https://github.com/MatthewMallory/morphology_processing

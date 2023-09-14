@@ -40,3 +40,8 @@ Automated pipeline combines pre-processing raw images, segmentation of raw image
  - arbor density representation
  - supervised classification
  - sparse feature selection
+ 
+#### SWC Post-Processing
+
+ Code for creating swc post-processing workflows can be found here:
+ https://github.com/MatthewMallory/morphology_processing 

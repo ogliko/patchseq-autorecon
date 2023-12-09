@@ -1,8 +1,9 @@
-### [Automated reconstruction of dendritic and axonal arbors reveals molecular correlates of neuroanatomy](https://www.biorxiv.org/content/10.1101/2022.03.07.482900v1)
+### [High-throughput analysis of dendritic and axonal arbors reveals transcriptomic correlates of neuroanatomy](https://www.biorxiv.org/content/10.1101/2022.03.07.482900v2)
 Olga Gliko, Matt Mallory, Rachel Dalley, Rohan Gala, James Gornet, Hongkui Zeng, Staci Sorensen, Uygar Sümbül
 
 #### Abstract
-Neuronal anatomy is central to the organization and function of brain cell types. However, anatomical variability within apparently homogeneous populations of cells can obscure such insights. Here, we report large-scale automation of arbor reconstruction on a dataset of 802 inhibitory neurons characterized using the Patch-seq method, which enables measurement of multiple properties from individual neurons, including local morphology and transcriptional signature. We demonstrate that these automated reconstructions can be used in the same manner as manual reconstructions to understand the relationship between many cellular properties used to define cell types. We uncover molecular correlates of laminar innervation on multiple molecularly defined neuronal subclasses and types. In particular, our results reveal molecular correlates of the variability in Layer 1 (L1) innervation even in a transcriptomically defined subpopulation of Martinotti cells in the adult mouse neocortex.
+Neuronal anatomy is central to the organization and function of brain cell types. However, anatomical variability within apparently homogeneous populations of cells can obscure such insights. Here, we report large-scale automation of neuronal morphology reconstruction and analysis on a dataset of 813 inhibitory neurons characterized using the Patch-seq method, which enables measurement of multiple properties from individual neurons, including local morphology and transcriptional signature. We demonstrate that these automated reconstructions can be used in the same manner as manual reconstructions to understand the relationship between some, but not all, cellular properties used to define cell types. We uncover gene expression correlates of laminar innervation on multiple transcriptomically defined neuronal subclasses and types. In particular, our results reveal correlates of the variability in Layer 1 (L1) axonal innervation in a transcriptomically defined subpopulation of Martinotti cells in the adult mouse neocortex.
+
 
 #### About this repository
 This repository contains codes and processed data files for analyses presented in the bioRxiv publication.
@@ -14,6 +15,9 @@ This repository contains codes and processed data files for analyses presented i
  
  
 ### Code
+
+- all neural network models are trained using GPU (GeForce GTX 1080 or Titan X). The inference can be run using GPU or CPU. For details see linked bioRxiv publication (Methods).
+- create conda environment and install dependencies (requirements.txt), clone the repository.
 
 #### Neuron reconstruction
 

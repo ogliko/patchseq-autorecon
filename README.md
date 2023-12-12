@@ -41,8 +41,8 @@ Automated pipeline combines pre-processing raw images, segmentation of raw image
  
 #### Data analysis
 
- - arbor density representation
- - supervised classification
+ - generating axonal and dendritic arbor density representations
+ - cell type classification using arbor density representations and morphometric features
  - sparse feature selection
  
 #### SWC Post-Processing

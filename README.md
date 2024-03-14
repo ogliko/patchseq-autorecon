@@ -17,35 +17,35 @@ This repository contains codes and processed data files for analyses presented i
 ### Code
 
 - all neural network models are trained using GPU (GeForce GTX 1080 or Titan X). The inference can be run using GPU or CPU. For details see linked bioRxiv publication (Methods).
-- create conda environment and install dependencies (requirements.txt), clone the repository.
+- create conda environment and install dependencies (`requirements.txt`), clone the repository.
 
 #### Neuron reconstruction
 
-**Volumetric data generation**
+***Volumetric data generation***
 
 Matlab functions and scripts to generate volumetric labels from manual traces using a topology preserving fast marching algorithm.
 Original github repo [here](https://github.com/rhngla/topo-preserve-fastmarching).
 
-**Segmentation**
+***Segmentation***
 
-Code for training a neuron network model to perform a multi-class segmentation of neuronal arbors is in the pytorch_segment section of this repository.
+Code for training a neuron network model to perform a multi-class segmentation of neuronal arbors as well as for running inference using trained models are in the `pytorch_segment` section of this repository.
 Original github repo [here](https://github.com/jgornet/NeuroTorch).
 
-**Postprocessing**
+***Postprocessing***
 
-Code for postprocessing including relabeling to improve axon/dendrite node assignment of the initial reconstruction is in the postprocessing section of this repository.
+Code for postprocessing including relabeling to improve axon/dendrite node assignment of the initial reconstruction is in the `postprocessing` section of this repository.
 
-**Neuron reconstruction pipeline**
+***Neuron reconstruction pipeline***
 
-Automated pipeline combines pre-processing raw images, segmentation of raw image stack into soma/axon/dendrite channels, post-processing, and conversion of images to swc file. This code, and [a small example](https://github.com/ogliko/patchseq-autorecon/blob/master/pipeline/example_pipeline.sh) can be found under the pipeline section of this repository. The example's maximum intensity projection (mip) is seen [here](https://github.com/ogliko/patchseq-autorecon/blob/master/pipeline/Example_Specimen_2112/example_specimen.PNG) 
+Automated pipeline combines pre-processing raw images, segmentation of raw image stack into soma/axon/dendrite channels, post-processing, and conversion of images to swc file. This code, and [a small example](https://github.com/ogliko/patchseq-autorecon/blob/master/pipeline/example_pipeline.sh) can be found under the `pipeline` section of this repository. The example's maximum intensity projection (mip) is seen [here](https://github.com/ogliko/patchseq-autorecon/blob/master/pipeline/Example_Specimen_2112/example_specimen.PNG) 
  
+***SWC Post-Processing***
+
+Code for creating swc post-processing workflows can be found here:
+ https://github.com/MatthewMallory/morphology_processing 
+
 #### Data analysis
 
- - generating axonal and dendritic arbor density representations
- - cell type classification using arbor density representations and morphometric features
- - sparse feature selection
- 
-#### SWC Post-Processing
-
- Code for creating swc post-processing workflows can be found here:
- https://github.com/MatthewMallory/morphology_processing 
+ - generating axonal and dendritic arbor density representations (`analysis/arbor_density`)
+ - cell type classification using arbor density representations and morphometric features (`analysis/cell_type_classification`)
+ - sparse feature selection (`analysis/sparse_feature_selection`)

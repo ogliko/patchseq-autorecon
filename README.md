@@ -28,12 +28,12 @@ Original github repo [here](https://github.com/rhngla/topo-preserve-fastmarching
 
 ***Segmentation***
 
-Code for training a neuron network model to perform a multi-class segmentation of neuronal arbors as well as for running inference using trained models are in the `pytorch_segment` section of this repository.
+Code for training a neuron network model to perform a multi-class segmentation of neuronal arbors as well as for running inference using trained models is in the `pytorch_segment` section of this repository.
 Original github repo [here](https://github.com/jgornet/NeuroTorch).
 
 ***Postprocessing***
 
-Code for postprocessing including relabeling to improve axon/dendrite node assignment of the initial reconstruction is in the `postprocessing` section of this repository.
+Code for postprocessing including relabeling to improve axon/dendrite node assignment of the initial reconstruction and merging segments is in the `postprocessing` section of this repository.
 
 ***Neuron reconstruction pipeline***
 

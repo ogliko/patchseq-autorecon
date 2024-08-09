@@ -1,4 +1,4 @@
-### [High-throughput analysis of dendritic and axonal arbors reveals transcriptomic correlates of neuroanatomy](https://www.biorxiv.org/content/10.1101/2022.03.07.482900v2)
+### [High-throughput analysis of dendritic and axonal arbors reveals transcriptomic correlates of neuroanatomy](https://www.nature.com/articles/s41467-024-50728-9)
 Olga Gliko, Matt Mallory, Rachel Dalley, Rohan Gala, James Gornet, Hongkui Zeng, Staci Sorensen, Uygar Sümbül
 
 #### Abstract

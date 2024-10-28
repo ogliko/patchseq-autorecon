@@ -6,7 +6,7 @@ Neuronal anatomy is central to the organization and function of brain cell types
 
 
 #### About this repository
-This repository contains codes and processed data files for analyses presented in the bioRxiv publication.
+This repository contains codes and processed data files for analyses presented in the bioRxiv publication. If you would like to run the segmentation pipeline on your own data, we have refined the pipeline code and moved this to a new repository ([patchseq_autotrace](https://github.com/AllenInstitute/patchseq_autotrace)). This has more efficient scripts (time and RAM), updated soma location estimation, compatibility with HPC/Slurm, job/queue management tools, pipeline databasing etc.
 
 ### Data
 

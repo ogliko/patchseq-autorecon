@@ -23,7 +23,7 @@ This repository contains codes and processed data files for analyses presented i
 
 ***Volumetric data generation***
 
-Matlab functions and scripts to generate volumetric labels from manual traces using a topology preserving fast marching algorithm.
+Matlab functions and scripts to generate volumetric labels from manual traces using a topology preserving fast marching algorithm are in the `volumetric_labeling` section of this repository.
 Original github repo [here](https://github.com/rhngla/topo-preserve-fastmarching).
 
 ***Segmentation***
